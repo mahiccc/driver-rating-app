@@ -31,18 +31,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".sensor.SensorAnalysisService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="location" />
-            
-        <service
-            android:name=".location.LocationMonitorService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="location" />
-
     </application>
 
 </manifest>

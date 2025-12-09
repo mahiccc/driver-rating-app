@@ -20,8 +20,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
-import com.example.driverrating.location.LocationMonitorService
-import com.example.driverrating.sensor.SensorAnalysisService
+import com.example.driversafetysdk.location.LocationMonitorService
+import com.example.driversafetysdk.sensor.SensorAnalysisService
 
 class DashboardActivity : ComponentActivity() {
 
@@ -119,6 +119,22 @@ fun DashboardScreen(score: Int, events: List<String>) {
             items(events) { event ->
                 AlertItem(event)
             }
+        }
+
+        Spacer(modifier = Modifier.weight(1f))
+
+        val context = androidx.compose.ui.platform.LocalContext.current
+        Button(
+            onClick = {
+                val intent = Intent("com.example.driverrating.EVENT_UPDATE")
+                intent.putExtra("type", "SIMULATION")
+                intent.putExtra("message", "Simulated Rash Driving Alert!")
+                context.sendBroadcast(intent)
+            },
+            modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
+        ) {
+            Text("Simulate Alert (Demo Mode)")
         }
     }
 }

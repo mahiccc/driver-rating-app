@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "DriverRating"
 include(":app")
+include(":driver-safety-sdk")
+
